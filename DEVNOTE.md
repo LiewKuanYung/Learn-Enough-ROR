@@ -7,6 +7,23 @@ Following [microsoft docs](https://docs.microsoft.com/en-us/windows/dev-environm
 ## Setup `rvm` on wsl
 Following [rvm github](https://github.com/rvm/ubuntu_rvm)
 
+# Extra learning
+
+## Ruby data structure
+- arrays & ranges
+- hashes & symbols
+- block 
+
+## Testing
+- Article about [red, green, & refactor](https://www.codecademy.com/article/tdd-red-green-refactor)
+- [ActiveSupport::Testing::Assertions](https://api.rubyonrails.org/v5.2/classes/ActiveSupport/Testing/Assertions.html), there are many assertions example here.
+
+## Partials
+- Example, the `_file.html.erb` with underscore at front is the convention of defining partials. Partials is like a snippet of code that could be inserted into other html.erb codes.
+
+## has_secure_password
+- password digest, aka, hashed password.
+
 # Other topics
 Some other trouble I get into, haih...
 
@@ -33,3 +50,6 @@ Received a warning messsage: "The nearest package directory doesn't seem to be p
 
 ## rails console stop working when used Ctrl + c 
 Use `$ bin/spring stop` , [stackoverflow](https://stackoverflow.com/questions/25027284/ruby-on-rails-console-is-hanging-when-loading)
+
+## SQLite3 Locked
+Error: `ActiveRecord :: StatementInvalid: SQLite3 :: BusyException: database is locked`, tried all methods listed [here](https://linuxtut.com/en/fbb4cb2d4c392063c9a9/). However, the one that only works is ... restarting my computer...
