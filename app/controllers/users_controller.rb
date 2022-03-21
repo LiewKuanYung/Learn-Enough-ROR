@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # logging in the user upon sign up
+      reset_session
+      log_in @user
       # a message that appears on the subsequent page 
       # and then disappears upon visiting a second page or on page reload.
       flash[:success] = "Welcome to the Sample App!"

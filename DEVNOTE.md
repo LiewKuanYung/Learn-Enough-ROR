@@ -13,6 +13,7 @@ Following [rvm github](https://github.com/rvm/ubuntu_rvm)
 - arrays & ranges
 - hashes & symbols
 - block 
+- Instance variable vs local variable vs class variable
 
 ## Testing
 - Article about [red, green, & refactor](https://www.codecademy.com/article/tdd-red-green-refactor)
@@ -23,6 +24,9 @@ Following [rvm github](https://github.com/rvm/ubuntu_rvm)
 
 ## has_secure_password
 - password digest, aka, hashed password.
+
+## Fixture
+Fixtures are a way of organizing data for testing. [ActiveRecord::Fixtures](https://api.rubyonrails.org/v3.1/classes/ActiveRecord/Fixtures.html)
 
 # Other topics
 Some other trouble I get into, haih...
