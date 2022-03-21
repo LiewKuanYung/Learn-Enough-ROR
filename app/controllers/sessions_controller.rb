@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # receive { session: { password: "foobar", email: "example@example.com" } }
     user = User.find_by(email: params[:session][:email].downcase)
 
     # same as

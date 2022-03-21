@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   private
+    # restrict allowed access of field
     def user_params
       params.require(:user).permit(:name, 
                                    :email, 
