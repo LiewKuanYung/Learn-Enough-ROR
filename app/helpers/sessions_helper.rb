@@ -25,7 +25,15 @@ module SessionsHelper
       ## if @current_user != nil, then return @current_user
       ## or else User.find_by(id)
 
-      @current_user ||= User.find_by(id: session[:user_id])
+      # @current_user ||= User.find_by(id: session[:user_id])
+
+      ## Version 2
+      ## Prevent session replay attack
+      user = User.find_by(id: user_id)
+      if user && session[:session_token] == user.session_token
+        # Updating the current user method to use the session token.
+        @current_user = user
+      end
 
     elsif (user_id = cookies.encrypted[:user_id])
       user = User.find_by(id: user_id)
