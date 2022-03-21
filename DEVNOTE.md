@@ -39,7 +39,8 @@ A note of how I setup my environment for Ruby and Rails inside WSL.
 Basically, rails consists of 3 Action Packs
 - Action Dispatch routes request to controllers
 - Action Controller converts requests into responses
-- Action View is used by Action Controller to format those reponse
+- Action View is used by Action Controller to format those reponse <br>
+
 Learn more in this [blog](http://dylanninin.com/blog/2013/11/26/rails4_ad_ac.html)
 
 ### Raise
@@ -49,7 +50,7 @@ Learn more in this [blog](http://dylanninin.com/blog/2013/11/26/rails4_ad_ac.htm
 
 
 # Other topics
-Some other trouble I get into, haih...
+Some other troubles I got into, haih...
 
 ### Reset password on WSL
 - Long story short.. change to root user and chpsswd for liew user, then relogin back.
