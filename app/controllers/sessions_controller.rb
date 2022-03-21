@@ -11,13 +11,18 @@ class SessionsController < ApplicationController
     # if @user && @user.authenticate(params[:session][:password])
     if @user&.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
+
+      # save original url
+      forwarding_url = session[:forwarding_url]
+      
+      # reset session, also clear forwarding_url in session
       reset_session
 
       # remember me feature
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
 
       log_in @user
-      redirect_to @user # after logged in, redirect to user page
+      redirect_to forwarding_url || @user # after logged in, redirect to user page
     else
       # Create an error message.
       # flash.now: error message will disappear once there's additional request

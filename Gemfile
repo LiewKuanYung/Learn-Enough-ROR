@@ -7,6 +7,11 @@ ruby '2.7.4'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use hashing function for has_secure_password
 gem 'bcrypt', '3.1.13'
+# Use faker for data seeding
+gem 'faker', '2.11.0'
+# Use pagination
+gem 'will_paginate', '3.3.0'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use Bootstrap CSS framework
 gem 'bootstrap-sass', '3.4.1'
 # Use Puma as the app server
