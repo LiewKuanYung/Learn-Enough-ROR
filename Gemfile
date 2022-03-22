@@ -5,6 +5,11 @@ ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+# Use for image resizing
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
+# Use for validate active storage that stores image
+gem 'active_storage_validations', '0.8.9'
 # Use hashing function for has_secure_password
 gem 'bcrypt', '3.1.13'
 # Use faker for data seeding
@@ -68,6 +73,7 @@ end
 
 group :production do
   gem 'pg', '1.2.3'
+  gem 'aws-sdk-s3', '1.87.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # has_many + dependent microposts will be destroyed when the user itself is destroyed.
+  has_many :microposts, dependent: :destroy 
+
   # Use attr_accessor to avoid var assigned as local var
   attr_accessor :remember_token, :activation_token, :reset_token
   
@@ -105,17 +108,23 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  private
-  
-  # Converts email to all lowercase.
-  def downcase_email
-    self.email = email.downcase
+  # Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
-  # Creates and assigns the activation token and digest.
-  def create_activation_digest
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
-  end
+  private
+  
+    # Converts email to all lowercase.
+    def downcase_email
+      self.email = email.downcase
+    end
+
+    # Creates and assigns the activation token and digest.
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 
 end
