@@ -15,7 +15,7 @@ A note of how I setup my environment for Ruby and Rails inside WSL.
 
 ### Ruby data structure
 - arrays & ranges
-- hashes & symbols
+- hashes & [symbols](https://www.rubyguides.com/2018/02/ruby-symbols/)
 - block 
 - Instance variable vs local variable vs class variable
 
