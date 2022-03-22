@@ -19,13 +19,21 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # logging in the user upon sign up
-      reset_session
-      log_in @user
-      # a message that appears on the subsequent page 
-      # and then disappears upon visiting a second page or on page reload.
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user # equivalent to redirect_to user_url(@user)
+      ### Previous version without email activatin
+      # # logging in the user upon sign up
+      # reset_session
+      # log_in @user
+      # # a message that appears on the subsequent page 
+      # # and then disappears upon visiting a second page or on page reload.
+      # flash[:success] = "Welcome to the Sample App!"
+      # redirect_to @user # equivalent to redirect_to user_url(@user)
+
+      
+      # UserMailer.account_activation(@user).deliver_now
+      ### This send email is declared inside model, therefore
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
