@@ -7,7 +7,7 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.account_activation(user)
     assert_equal "Account activation", mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ["noreply@example.com"], mail.from
+    assert_equal ["liewkuanyung@gmail.com"], mail.from
     # assert_match can be used with either a string or a regex
     assert_match user.name, mail.body.encoded
     assert_match user.activation_token, mail.body.encoded
