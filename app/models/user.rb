@@ -1,6 +1,28 @@
 class User < ApplicationRecord
-  # has_many + dependent microposts will be destroyed when the user itself is destroyed.
-  has_many :microposts, dependent: :destroy 
+  # Associations with microposts
+  has_many :microposts, 
+            dependent: :destroy # dependent microposts will be destroyed when the user itself is destroyed.
+
+  # associations with relationships
+  ## active relationship, user is following
+  has_many :active_relationships, 
+            class_name: "Relationship",
+            foreign_key: "follower_id",
+            dependent: :destroy
+  ## passive relationship, user is followed by 
+  has_many :passive_relationships, 
+            class_name: "Relationship",
+            foreign_key: "followed_id",
+            dependent: :destroy
+
+  # rewrite "followed" to "following"
+  has_many :following, 
+            through: :active_relationships, 
+            source: :followed
+  # rewrite "followers" to "follower"
+  has_many :followers, 
+            through: :passive_relationships, 
+            source: :follower
 
   # Use attr_accessor to avoid var assigned as local var
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -111,7 +133,25 @@ class User < ApplicationRecord
   # Defines a proto-feed.
   # See "Following users" for the full implementation.
   def feed
-    Micropost.where("user_id = ?", id)
+    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+             .includes(:user, image_attachment: :blob)
+  end
+
+  # Follows a user.
+  def follow(other_user)
+    # << means "add to the end of this array"
+    following << other_user unless self == other_user
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
   end
 
   private

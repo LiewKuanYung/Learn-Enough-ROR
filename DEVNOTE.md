@@ -43,11 +43,15 @@ Basically, rails consists of 3 Action Packs
 
 Learn more in this [blog](http://dylanninin.com/blog/2013/11/26/rails4_ad_ac.html)
 
-### Raise
+### Ruby keywords
+- `Raise` an exception
+- `debugger` to debug
 
+### What does `<<` mean in Ruby?
+- Basically add to the end of this array, see also this [stackoverflow](https://stackoverflow.com/questions/6852072/what-does-mean-in-ruby) or this [ruby doc](https://ruby-doc.org/core-3.1.1/Array.html#M000225)
 
-
-
+### HTML
+- `<strong>` tag shows the text with strong importance and it's usually **bold**
 
 # Other topics
 Some other troubles I got into, haih...
