@@ -1,4 +1,8 @@
-# Environment Setup
+# DEVELOPER NOTE
+Note for developer. Haha just kidding. This is a note that records some of the setup process or technical issues faced during the development of this project.
+
+## Environment Setup
+---
 A note of how I setup my environment for Ruby and Rails inside WSL.
 
 ### Setup `nvm` on wsl
@@ -11,7 +15,8 @@ A note of how I setup my environment for Ruby and Rails inside WSL.
 
 
 
-# Extra learning
+## Extra learning
+---
 
 ### Ruby data structure
 - arrays & ranges
@@ -53,7 +58,12 @@ Learn more in this [blog](http://dylanninin.com/blog/2013/11/26/rails4_ad_ac.htm
 ### HTML
 - `<strong>` tag shows the text with strong importance and it's usually **bold**
 
-# Other topics
+
+
+
+
+## Other topics
+---
 Some other troubles I got into, haih...
 
 ### Reset password on WSL
